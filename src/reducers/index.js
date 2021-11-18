@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import foodReducer from './foodReducer';
+import postReducer from './postReducer';
 
 export default combineReducers({
-    foods: foodReducers
+    posts: postReducer
 })

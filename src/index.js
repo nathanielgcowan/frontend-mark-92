@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './containers/App';
+import Favorite from './containers/Favorite';
+import LeastFavorite from './containers/LeastFavorite';
+import PostList from './containers/PostList';
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from './reducers';
 import thunk from 'redux-thunk';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const intialState ={};
 
@@ -20,7 +23,13 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App />
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route exact path="/food-list" element= {<PostList/>} />
+          <Route exact path="/favorite" element= {<Favorite/>} />
+          <Route exact path="/least-favorite" element= {<LeastFavorite/>} />
+        </Route>
+      </Routes>
     </Router>
   </Provider>,
   document.getElementById('root'));
