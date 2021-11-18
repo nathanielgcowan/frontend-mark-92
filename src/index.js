@@ -5,6 +5,7 @@ import App from './containers/App';
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from './reducers';
 import thunk from 'redux-thunk';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const intialState ={};
 
